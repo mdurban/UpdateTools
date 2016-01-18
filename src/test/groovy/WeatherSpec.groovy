@@ -31,4 +31,16 @@ class WeatherSpec extends Specification {
         expect:
             weather.getCurrentConditions() == "sky is clear"
     }
+
+    def "getFiveDayForecast should return temperatures of next five days of city"() {
+        setup:
+           def slurper = [parseText: {
+               String json -> ["list":[["temp":["day":10.0]], ["temp":["day":20.0]], ["temp":["day":30.0]], ["temp":["day":40.0]], ["temp":["day":50.0]], ["temp":["day":60.0]], ["temp":["day":70.0]]]]
+           }] as JsonSlurper
+           weather.slurper = slurper
+           
+        expect:
+            weather.getFiveDayForecast() == [10.0, 20.0, 30.0, 40.0, 50.0]
+    }
+
 }
