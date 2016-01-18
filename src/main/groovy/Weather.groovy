@@ -26,11 +26,11 @@ class Weather {
          returnList.dropRight 2
     }
 
-    def getWeatherData(key, value) {
+    private def getWeatherData(key, value) {
         String jsonOutput = "http://api.openweathermap.org/data/2.5/${key}?q=${value}&appid=${OPEN_WEATHER_MAP_EXAMPLE_APPID}".toURL().text
     }
     
-    def convertToFahrenheit(kelvinTemp) {
+    private def convertToFahrenheit(kelvinTemp) {
         (kelvinTemp - 273.15) * 1.80 + 32.00
     }
 }
