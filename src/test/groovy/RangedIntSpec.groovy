@@ -1,4 +1,5 @@
 import spock.lang.Specification
+import spock.lang.Unroll
 
 class RangedIntSpec extends Specification {
 
@@ -11,24 +12,21 @@ class RangedIntSpec extends Specification {
             rangedInt.getValue() == 1
     }
     
-    def "range should be inclusive for min"() {
+    @Unroll
+    def "range should be inclusive on both ends"() {
         setup:
             RangedInt rangedInt = new RangedInt(0, 100)
-            rangedInt.setValue 0
+            rangedInt.setValue x
 
         expect:
-            rangedInt.getValue() == 0
+            rangedInt.getValue() == y
+
+        where:
+        x  |  y
+        0  |  0
+        100|  100
     }
 
-    def "range should be inclusive for max"() {
-        setup:
-            RangedInt rangedInt = new RangedInt(0, 100)
-            rangedInt.setValue 100
-
-        expect:
-            rangedInt.getValue() == 100
-    }
-    
     def "if value is more than max, value should use max"() {
         setup:
             RangedInt rangedInt = new RangedInt(0, 100)
@@ -36,5 +34,14 @@ class RangedIntSpec extends Specification {
 
         expect:
             rangedInt.getValue() == 100
+    }
+    
+    def "if value is less than min, value should use min"() {
+        setup:
+            RangedInt rangedInt = new RangedInt(10, 100)
+            rangedInt.setValue 9
+
+        expect:
+            rangedInt.getValue() == 10
     }
 }

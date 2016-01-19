@@ -14,7 +14,8 @@ class RangedInt {
     }
 
     int getValue() {
-         value < max ? value : max
+         def result = value < max ? value : max
+         this.value > min ? result : min
     }
 
 }
