@@ -1,5 +1,5 @@
 import spock.lang.Specification
-import groovy.json.*;
+import groovy.json.*
 
 class WeatherSpec extends Specification {
 
