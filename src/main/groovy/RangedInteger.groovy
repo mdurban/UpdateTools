@@ -1,10 +1,10 @@
-class RangedInt {
+class RangedInteger {
 
     int min
     int max
     int value
 
-    def RangedInt(int min, int max) {
+    def RangedInteger(int min, int max) {
         this.min = min
         this.max = max
     }
@@ -15,7 +15,7 @@ class RangedInt {
 
     int getValue() {
          def result = value < max ? value : max
-         this.value > min ? result : min
+         value > min ? result : min
     }
 
 }

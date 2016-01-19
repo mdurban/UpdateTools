@@ -1,11 +1,11 @@
 import spock.lang.Specification
 import spock.lang.Unroll
 
-class RangedIntSpec extends Specification {
+class RangedIntegerSpec extends Specification {
 
     def "integer within specified range should return that integer"() {
         setup:
-            RangedInt rangedInt = new RangedInt(0, 100)
+            RangedInteger rangedInt = new RangedInteger(0, 100)
             rangedInt.setValue 1
 
         expect:
@@ -15,7 +15,7 @@ class RangedIntSpec extends Specification {
     @Unroll
     def "range should be inclusive on both ends"() {
         setup:
-            RangedInt rangedInt = new RangedInt(0, 100)
+            RangedInteger rangedInt = new RangedInteger(0, 100)
             rangedInt.setValue x
 
         expect:
@@ -29,7 +29,7 @@ class RangedIntSpec extends Specification {
 
     def "if value is more than max, value should use max"() {
         setup:
-            RangedInt rangedInt = new RangedInt(0, 100)
+            RangedInteger rangedInt = new RangedInteger(0, 100)
             rangedInt.setValue 101
 
         expect:
@@ -38,7 +38,7 @@ class RangedIntSpec extends Specification {
     
     def "if value is less than min, value should use min"() {
         setup:
-            RangedInt rangedInt = new RangedInt(10, 100)
+            RangedInteger rangedInt = new RangedInteger(10, 100)
             rangedInt.setValue 9
 
         expect:
