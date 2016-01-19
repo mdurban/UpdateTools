@@ -1,2 +1,2 @@
-Project that will send out daily updates. Includes:
+Collection of Groovy libraries for useful everyday updates. Includes:
 - Weather API
