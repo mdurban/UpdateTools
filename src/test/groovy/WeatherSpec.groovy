@@ -35,4 +35,8 @@ class WeatherSpec extends Specification {
            Weather.getFiveDayForecast("columbus", "oh") == [10.0, 20.0, 30.0, 40.0, 50.0]
     }
 
+    def cleanup() {
+        JsonSlurper.metaClass = null
+    }
+
 }
