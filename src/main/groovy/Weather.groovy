@@ -27,7 +27,7 @@ class Weather {
     }
 
     static private getWeatherData(key, value) {
-        String jsonOutput = "http://api.openweathermap.org/data/2.5/${key}?q=${value}&appid=${OPEN_WEATHER_MAP_EXAMPLE_APPID}".toURL().text
+        "http://api.openweathermap.org/data/2.5/${key}?q=${value}&appid=${OPEN_WEATHER_MAP_EXAMPLE_APPID}".toURL().text
     }
     
     static private convertToFahrenheit(kelvinTemp) {
